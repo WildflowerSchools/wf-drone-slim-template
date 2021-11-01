@@ -42,7 +42,7 @@ steps:
     - sleep 5 # give docker enough time to start
     - docker ps -a
     - docker images
-    - docker run -e dslim/docker-slim build --dockerfile Dockerfile --tag $env:TAG
+    - docker run dslim/docker-slim build --dockerfile Dockerfile --tag $env:TAG
     - docker login -u $env:USERNAME -p $env:PASSWORD
     - docker push ${env:TAG}.slim
     - docker rmi  ${env:TAG}.slim
