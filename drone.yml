@@ -40,17 +40,17 @@ steps:
       from_secret: docker_password
     TAG: wildflowerschools/wf-drone-slim-template
   commands:
-    - env
+    - export TAG_WITH_VERSION=${TAG}.slim:v${DRONE_BUILD_NUMBER}
     - sleep 8 # give docker enough time to start
     - docker ps -a
     - docker images
     - pwd
     # - docker run -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build $TAG
-    - docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile Dockerfile --tag ${TAG}.slim:v${DRONE_BUILD_NUMBER} /app
+    - docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile Dockerfile --tag ${TAG_WITH_VERSION} /app
     - docker login -u $USERNAME -p $PASSWORD
-    - docker push ${TAG}.slim:v${DRONE_BUILD_NUMBER}
-    - docker rmi  ${TAG}.slim:v${DRONE_BUILD_NUMBER}
-    - docker rmi  ${TAG}.fat:v${DRONE_BUILD_NUMBER}
+    - docker push ${TAG_WITH_VERSION}
+    - docker rmi  ${TAG_WITH_VERSION}
+    # - docker rmi  ${TAG}.fat:v${DRONE_BUILD_NUMBER}
   volumes:
     - name: dockersock
       path: /var/run
