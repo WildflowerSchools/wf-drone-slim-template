@@ -39,10 +39,10 @@ steps:
       from_secret: docker_password
     TAG: wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER
   commands:
-    - sleep 5 # give docker enough time to start
+    - sleep 8 # give docker enough time to start
     - docker ps -a
     - docker images
-    - docker run dslim/docker-slim build --dockerfile Dockerfile --tag $TAG .
+    - docker run -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build --dockerfile Dockerfile --tag $TAG .
     - docker login -u $USERNAME -p $PASSWORD
     - docker push $${TAG}.slim
     - docker rmi  $${TAG}.slim
