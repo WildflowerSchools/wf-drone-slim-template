@@ -1,2 +1,4 @@
+__pycache__/
+.eggs
 .env
 .python-version
