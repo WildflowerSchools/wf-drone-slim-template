@@ -23,7 +23,7 @@ steps:
       exclude:
       - pull_request
   settings:
-    dockerfile: deployment/app.dockerfile
+    dockerfile: Dockerfile
     username:
       from_secret: docker_username
     password:
