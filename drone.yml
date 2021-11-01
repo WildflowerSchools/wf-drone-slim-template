@@ -45,7 +45,7 @@ steps:
     - docker images
     - pwd
     # - docker run -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build $TAG
-    - docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile /app/Dockerfile --tag $${TAG} .
+    - docker run -T -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile /app/Dockerfile --tag $${TAG} .
     - docker login -u $USERNAME -p $PASSWORD
     - docker push $${TAG}.slim
     - docker rmi  $${TAG}.slim
