@@ -45,6 +45,7 @@ steps:
     - sleep 8 # give docker enough time to start
     - docker ps -a
     - docker images
+    - docker pull $TAG_WITH_VERSION
     # - docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile Dockerfile --tag $TAG_WITH_VERSION /app
     - docker run -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build --tag $TAG_WITH_VERSION_SLIM $TAG_WITH_VERSION
     - docker login -u $USERNAME -p $PASSWORD
