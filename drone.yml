@@ -1,0 +1,31 @@
+kind: pipeline
+type: kubernetes
+name: drone
+service_account_name: default
+
+metadata:
+  namespace: drone
+
+steps:
+- name: set-tag
+  image: python:3.9
+  environment:
+    DRONE: "true"
+  commands:
+  - echo -n v$DRONE_BUILD_NUMBER > .tags
+  - cat .tags
+- name: docker
+  image: plugins/docker
+  when:
+    branch:
+    - main
+    event:
+      exclude:
+      - pull_request
+  settings:
+    dockerfile: deployment/app.dockerfile
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: wildflowerschools/wf-drone-slim-template
