@@ -29,3 +29,19 @@ steps:
     password:
       from_secret: docker_password
     repo: wildflowerschools/wf-drone-slim-template
+- name: docker-slim
+  image: docker
+  environment:
+    DRONE: "true"
+    USERNAME:
+      from_secret: docker_username
+    PASSWORD:
+      from_secret: docker_password
+  commands:
+    - docker images
+    - docker run -e dslim/docker-slim build wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER
+    - docker login -u $env:USERNAME -p $env:PASSWORD
+    - docker push wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER.slim
+    - docker rmi wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER.slim
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock

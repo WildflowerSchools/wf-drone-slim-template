@@ -1,0 +1,677 @@
+{
+  "version": "1.0",
+  "engine": "darwin|Transformer|1.37.0|latest|latest",
+  "containerized": false,
+  "host_distro": {
+    "name": "",
+    "version": "",
+    "display_name": "Big Sur (11.6)"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "wildflowerschools/wf-drone-slim-template:v1",
+  "system": {
+    "type": "Linux",
+    "release": "5.10.47-linuxkit",
+    "distro": {
+      "name": "Debian GNU/Linux",
+      "version": "11",
+      "display_name": "Debian GNU/Linux 11 (bullseye)"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:50f330906faf7f076c5d908c1f257310635b0162421b24616f52962d9c721943",
+      "tags": [
+        "v1"
+      ],
+      "names": [
+        "wildflowerschools/wf-drone-slim-template:v1"
+      ]
+    },
+    "size": 1045928738,
+    "size_human": "1.0 GB",
+    "create_time": "2021-11-01T18:07:11Z",
+    "docker_version": "",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "80/tcp"
+    ],
+    "os": "linux",
+    "labels": {
+      "maintainer": "Sebastian Ramirez <tiangolo@gmail.com>"
+    },
+    "env_vars": [
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LANG=C.UTF-8",
+      "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+      "PYTHON_VERSION=3.8.12",
+      "PYTHON_PIP_VERSION=21.2.4",
+      "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+      "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/c20b0cfd643cd4a19246ccf204e2997af70f6b21/public/get-pip.py",
+      "PYTHON_GET_PIP_SHA256=fa6f3fb93cce234cd4e8dd2beb54a51ab9c247653b52855a48dd44e6b21ff28b",
+      "PYTHONPATH=/app"
+    ],
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 149122325,
+  "minified_image_size_human": "149 MB",
+  "minified_image": "wildflowerschools/wf-drone-slim-template.slim",
+  "minified_image_has_data": true,
+  "minified_by": 7.0138977379812175,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/50f330906faf7f076c5d908c1f257310635b0162421b24616f52962d9c721943/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "wildflowerschools-wf-drone-slim-template-seccomp.json",
+  "apparmor_profile_name": "wildflowerschools-wf-drone-slim-template-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:50f330906faf7f076c5d908c1f257310635b0162421b24616f52962d9c721943",
+      "full_name": "wildflowerschools/wf-drone-slim-template:v1",
+      "repo_name": "wildflowerschools/wf-drone-slim-template",
+      "version_tag": "v1",
+      "raw_tags": [
+        "wildflowerschools/wf-drone-slim-template:v1"
+      ],
+      "create_time": "2021-11-01T18:07:11Z",
+      "new_size": 1045928738,
+      "new_size_human": "1.0 GB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2021-09-28T01:22:25Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 123881785,
+          "size_human": "124 MB",
+          "params": "file:d05a14b1e57f9cc8eeb316a843403bbb35176d6222d60d6ddbb34faba977e316 in /",
+          "command_snippet": "ADD file:d05a14b1e57f9cc8eeb316a843403bbb351...",
+          "command_all": "ADD file:d05a14b1e57f9cc8eeb316a843403bbb35176d6222d60d6ddbb34faba977e316 /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2021-09-28T01:22:25Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"bash\"]",
+          "command_snippet": "CMD [\"bash\"]",
+          "command_all": "CMD [\"bash\"]"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T01:49:57Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 10685063,
+          "size_human": "11 MB",
+          "command_snippet": "RUN set -eux; \tapt-get update; \tapt-get inst...",
+          "command_all": "RUN set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tcurl \t\tnetbase \t\twget \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -eux",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends ca-certificates curl netbase wget",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T01:50:04Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 18947299,
+          "size_human": "19 MB",
+          "command_snippet": "RUN set -ex; \tif ! command -v gpg > /dev/nul...",
+          "command_all": "RUN set -ex; \tif ! command -v gpg > /dev/null; then \t\tapt-get update; \t\tapt-get install -y --no-install-recommends \t\t\tgnupg \t\t\tdirmngr \t\t; \t\trm -rf /var/lib/apt/lists/*; \tfi",
+          "system_commands": [
+            "set -ex",
+            "if ! command -v gpg > /dev/null",
+            "then apt-get update",
+            "apt-get install -y --no-install-recommends gnupg dirmngr",
+            "rm -rf /var/lib/apt/lists/*",
+            "fi"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T01:50:21Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 151936913,
+          "size_human": "152 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tgit \t\tmercurial \t\topenssh-client \t\tsubversion \t\t\t\tprocps && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends git mercurial openssh-client subversion procps",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T01:51:15Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 528302423,
+          "size_human": "528 MB",
+          "command_snippet": "RUN set -ex; \tapt-get update; \tapt-get insta...",
+          "command_all": "RUN set -ex; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tautoconf \t\tautomake \t\tbzip2 \t\tdpkg-dev \t\tfile \t\tg++ \t\tgcc \t\timagemagick \t\tlibbz2-dev \t\tlibc6-dev \t\tlibcurl4-openssl-dev \t\tlibdb-dev \t\tlibevent-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tlibglib2.0-dev \t\tlibgmp-dev \t\tlibjpeg-dev \t\tlibkrb5-dev \t\tliblzma-dev \t\tlibmagickcore-dev \t\tlibmagickwand-dev \t\tlibmaxminddb-dev \t\tlibncurses5-dev \t\tlibncursesw5-dev \t\tlibpng-dev \t\tlibpq-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tlibtool \t\tlibwebp-dev \t\tlibxml2-dev \t\tlibxslt-dev \t\tlibyaml-dev \t\tmake \t\tpatch \t\tunzip \t\txz-utils \t\tzlib1g-dev \t\t\t\t$( \t\t\tif apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'; then \t\t\t\techo 'default-libmysqlclient-dev'; \t\t\telse \t\t\t\techo 'libmysqlclient-dev'; \t\t\tfi \t\t) \t; \trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "set -ex",
+            "apt-get update",
+            "apt-get install -y --no-install-recommends autoconf automake bzip2 dpkg-dev file g++ gcc imagemagick libbz2-dev libc6-dev libcurl4-openssl-dev libdb-dev libevent-dev libffi-dev libgdbm-dev libglib2.0-dev libgmp-dev libjpeg-dev libkrb5-dev liblzma-dev libmagickcore-dev libmagickwand-dev libmaxminddb-dev libncurses5-dev libncursesw5-dev libpng-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev libyaml-dev make patch unzip xz-utils zlib1g-dev $( if apt-cache show 'default-libmysqlclient-dev' 2>/dev/null | grep -q '^Version:'",
+            "then echo 'default-libmysqlclient-dev'",
+            "else echo 'libmysqlclient-dev'",
+            "fi )",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T17:49:48Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "command_snippet": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr...",
+          "command_all": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T17:49:48Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "LANG=C.UTF-8",
+          "command_snippet": "ENV LANG=C.UTF-8",
+          "command_all": "ENV LANG=C.UTF-8"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T17:49:54Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 18472501,
+          "size_human": "18 MB",
+          "command_snippet": "RUN apt-get update && \\\n\tapt-get install -y ...",
+          "command_all": "RUN apt-get update && \\\n\tapt-get install -y --no-install-recommends \t\tlibbluetooth-dev \t\ttk-dev \t\tuuid-dev && \\\n\trm -rf /var/lib/apt/lists/*",
+          "system_commands": [
+            "apt-get update",
+            "apt-get install -y --no-install-recommends libbluetooth-dev tk-dev uuid-dev",
+            "rm -rf /var/lib/apt/lists/*"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T18:25:48Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+          "command_snippet": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E3...",
+          "command_all": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T19:00:02Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_VERSION=3.8.12",
+          "command_snippet": "ENV PYTHON_VERSION=3.8.12",
+          "command_all": "ENV PYTHON_VERSION=3.8.12"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T19:07:13Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 48615666,
+          "size_human": "49 MB",
+          "command_snippet": "RUN set -ex && \\\n\twget -O python.tar.xz \"htt...",
+          "command_all": "RUN set -ex && \\\n\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\" && \\\n\twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\" && \\\n\texport GNUPGHOME=\"$(mktemp -d)\" && \\\n\tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\" && \\\n\tgpg --batch --verify python.tar.xz.asc python.tar.xz && \\\n\t{ command -v gpgconf > /dev/null && \\\n\tgpgconf --kill all || :; } && \\\n\trm -rf \"$GNUPGHOME\" python.tar.xz.asc && \\\n\tmkdir -p /usr/src/python && \\\n\ttar -xJC /usr/src/python --strip-components=1 -f python.tar.xz && \\\n\trm python.tar.xz && \\\n\tcd /usr/src/python && \\\n\tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\" && \\\n\t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-system-expat \t\t--with-system-ffi \t\t--without-ensurepip && \\\n\tmake -j \"$(nproc)\" && \\\n\tmake install && \\\n\trm -rf /usr/src/python && \\\n\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' \\) \\) \t\t\t-o \\( -type f -a -name 'wininst-*.exe' \\) \t\t\\) -exec rm -rf '{}' + && \\\n\tldconfig && \\\n\tpython3 --version",
+          "system_commands": [
+            "set -ex",
+            "wget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"",
+            "wget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"",
+            "export GNUPGHOME=\"$(mktemp -d)\"",
+            "gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"",
+            "gpg --batch --verify python.tar.xz.asc python.tar.xz",
+            "{ command -v gpgconf > /dev/null",
+            "gpgconf --kill all || :; }",
+            "rm -rf \"$GNUPGHOME\" python.tar.xz.asc",
+            "mkdir -p /usr/src/python",
+            "tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz",
+            "rm python.tar.xz",
+            "cd /usr/src/python",
+            "gnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"",
+            "./configure --build=\"$gnuArch\" --enable-loadable-sqlite-extensions --enable-optimizations --enable-option-checking=fatal --enable-shared --with-system-expat --with-system-ffi --without-ensurepip",
+            "make -j \"$(nproc)\"",
+            "make install",
+            "rm -rf /usr/src/python",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' -o -name '*.a' ) ) -o ( -type f -a -name 'wininst-*.exe' ) ) -exec rm -rf '{}' +",
+            "ldconfig",
+            "python3 --version"
+          ]
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T19:07:14Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 32,
+          "size_human": "32 B",
+          "command_snippet": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle...",
+          "command_all": "RUN cd /usr/local/bin && \\\n\tln -s idle3 idle && \\\n\tln -s pydoc3 pydoc && \\\n\tln -s python3 python && \\\n\tln -s python3-config python-config",
+          "system_commands": [
+            "cd /usr/local/bin",
+            "ln -s idle3 idle",
+            "ln -s pydoc3 pydoc",
+            "ln -s python3 python",
+            "ln -s python3-config python-config"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T19:07:15Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_PIP_VERSION=21.2.4",
+          "command_snippet": "ENV PYTHON_PIP_VERSION=21.2.4",
+          "command_all": "ENV PYTHON_PIP_VERSION=21.2.4"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T19:07:15Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "command_snippet": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0",
+          "command_all": "ENV PYTHON_SETUPTOOLS_VERSION=57.5.0"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T19:07:15Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/c20b0cfd643cd4a19246ccf204e2997af70f6b21/public/get-pip.py",
+          "command_snippet": "ENV PYTHON_GET_PIP_URL=https://github.com/py...",
+          "command_all": "ENV PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/c20b0cfd643cd4a19246ccf204e2997af70f6b21/public/get-pip.py"
+        },
+        {
+          "type": "ENV",
+          "time": "2021-09-28T19:07:15Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHON_GET_PIP_SHA256=fa6f3fb93cce234cd4e8dd2beb54a51ab9c247653b52855a48dd44e6b21ff28b",
+          "command_snippet": "ENV PYTHON_GET_PIP_SHA256=fa6f3fb93cce234cd4...",
+          "command_all": "ENV PYTHON_GET_PIP_SHA256=fa6f3fb93cce234cd4e8dd2beb54a51ab9c247653b52855a48dd44e6b21ff28b"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-28T19:07:21Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 8313483,
+          "size_human": "8.3 MB",
+          "command_snippet": "RUN set -ex; \t\twget -O get-pip.py \"$PYTHON_G...",
+          "command_all": "RUN set -ex; \t\twget -O get-pip.py \"$PYTHON_GET_PIP_URL\"; \techo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -; \t\tpython get-pip.py \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t\"pip==$PYTHON_PIP_VERSION\" \t\t\"setuptools==$PYTHON_SETUPTOOLS_VERSION\" \t; \tpip --version; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \t\t\t\\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' \\) \\) \t\t\\) -exec rm -rf '{}' +; \trm -f get-pip.py",
+          "system_commands": [
+            "set -ex",
+            "wget -O get-pip.py \"$PYTHON_GET_PIP_URL\"",
+            "echo \"$PYTHON_GET_PIP_SHA256 *get-pip.py\" | sha256sum --check --strict -",
+            "python get-pip.py --disable-pip-version-check --no-cache-dir \"pip==$PYTHON_PIP_VERSION\" \"setuptools==$PYTHON_SETUPTOOLS_VERSION\"",
+            "pip --version",
+            "find /usr/local -depth ( ( -type d -a ( -name test -o -name tests -o -name idle_test ) ) -o ( -type f -a ( -name '*.pyc' -o -name '*.pyo' ) ) ) -exec rm -rf '{}' +",
+            "rm -f get-pip.py"
+          ]
+        },
+        {
+          "type": "CMD",
+          "time": "2021-09-28T19:07:22Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"python3\"]",
+          "command_snippet": "CMD [\"python3\"]",
+          "command_all": "CMD [\"python3\"]"
+        },
+        {
+          "type": "LABEL",
+          "time": "2021-10-01T20:20:34Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "maintainer=Sebastian Ramirez <tiangolo@gmail.com>",
+          "command_snippet": "LABEL maintainer=Sebastian Ramirez <tiangolo...",
+          "command_all": "LABEL maintainer=Sebastian Ramirez <tiangolo@gmail.com>"
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-01T20:20:35Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 43,
+          "size_human": "43 B",
+          "params": "file:58b79d0b40408c4e413b37e743cc9aa37f2ed5809e6b521c0f2f90f88d54f4bb in /tmp/requirements.txt",
+          "command_snippet": "COPY file:58b79d0b40408c4e413b37e743cc9aa37f...",
+          "command_all": "COPY file:58b79d0b40408c4e413b37e743cc9aa37f2ed5809e6b521c0f2f90f88d54f4bb /tmp/requirements.txt",
+          "target": "/tmp/requirements.txt",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-01T20:20:41Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 38757886,
+          "size_human": "39 MB",
+          "command_snippet": "RUN pip install --no-cache-dir -r /tmp/requi...",
+          "command_all": "RUN pip install --no-cache-dir -r /tmp/requirements.txt",
+          "system_commands": [
+            "pip install --no-cache-dir -r /tmp/requirements.txt"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-01T20:20:42Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1111,
+          "size_human": "1.1 kB",
+          "params": "file:a7cbd1d30cfba06f6af38968e58f67fa7e60cf39be114bc68271e0499cdb27f8 in /start.sh",
+          "command_snippet": "COPY file:a7cbd1d30cfba06f6af38968e58f67fa7e...",
+          "command_all": "COPY file:a7cbd1d30cfba06f6af38968e58f67fa7e60cf39be114bc68271e0499cdb27f8 /start.sh",
+          "target": "/start.sh",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-01T20:20:43Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1111,
+          "size_human": "1.1 kB",
+          "command_snippet": "RUN chmod +x /start.sh",
+          "command_all": "RUN chmod +x /start.sh",
+          "system_commands": [
+            "chmod +x /start.sh"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-01T20:20:44Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1937,
+          "size_human": "1.9 kB",
+          "params": "file:df3064d89a425c9eff99df86cb41d2f87fd4a43f5c7bfce997951feb150bfd72 in /gunicorn_conf.py",
+          "command_snippet": "COPY file:df3064d89a425c9eff99df86cb41d2f87f...",
+          "command_all": "COPY file:df3064d89a425c9eff99df86cb41d2f87fd4a43f5c7bfce997951feb150bfd72 /gunicorn_conf.py",
+          "target": "/gunicorn_conf.py",
+          "source_type": "file"
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-01T20:20:45Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 848,
+          "size_human": "848 B",
+          "params": "file:768d0b7e770e8e4ee8e312fa254a5a7e8f333d67177141948daf006f0e759b10 in /start-reload.sh",
+          "command_snippet": "COPY file:768d0b7e770e8e4ee8e312fa254a5a7e8f...",
+          "command_all": "COPY file:768d0b7e770e8e4ee8e312fa254a5a7e8f333d67177141948daf006f0e759b10 /start-reload.sh",
+          "target": "/start-reload.sh",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-01T20:20:47Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 848,
+          "size_human": "848 B",
+          "command_snippet": "RUN chmod +x /start-reload.sh",
+          "command_all": "RUN chmod +x /start-reload.sh",
+          "system_commands": [
+            "chmod +x /start-reload.sh"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-01T20:20:48Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 844,
+          "size_human": "844 B",
+          "params": "dir:c31effb9ece3bb4d9a0cafb65f32d4330445a438648018fe17bc60da9972e2ea in /app",
+          "command_snippet": "COPY dir:c31effb9ece3bb4d9a0cafb65f32d433044...",
+          "command_all": "COPY dir:c31effb9ece3bb4d9a0cafb65f32d4330445a438648018fe17bc60da9972e2ea /app",
+          "target": "/app",
+          "source_type": "dir"
+        },
+        {
+          "type": "WORKDIR",
+          "time": "2021-10-01T20:20:49Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "/app/",
+          "command_snippet": "WORKDIR /app/",
+          "command_all": "WORKDIR /app/",
+          "system_commands": [
+            "mkdir -p /app/"
+          ]
+        },
+        {
+          "type": "ENV",
+          "time": "2021-10-01T20:20:50Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "PYTHONPATH=/app",
+          "command_snippet": "ENV PYTHONPATH=/app",
+          "command_all": "ENV PYTHONPATH=/app"
+        },
+        {
+          "type": "EXPOSE",
+          "time": "2021-10-01T20:20:51Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "80",
+          "command_snippet": "EXPOSE 80",
+          "command_all": "EXPOSE 80"
+        },
+        {
+          "type": "CMD",
+          "time": "2021-10-01T20:20:52Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/start.sh\"]",
+          "command_snippet": "CMD [\"/start.sh\"]",
+          "command_all": "CMD [\"/start.sh\"]"
+        },
+        {
+          "type": "LABEL",
+          "time": "2021-10-02T18:26:30Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "maintainer=Sebastian Ramirez <tiangolo@gmail.com>",
+          "command_snippet": "LABEL maintainer=Sebastian Ramirez <tiangolo...",
+          "command_all": "LABEL maintainer=Sebastian Ramirez <tiangolo@gmail.com>"
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-02T18:26:32Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 59,
+          "size_human": "59 B",
+          "params": "file:bd9cb5c607cf629245cf53226a69c5261b2ccc4af0d8a1d49e18d019cf4774af in /tmp/requirements.txt",
+          "command_snippet": "COPY file:bd9cb5c607cf629245cf53226a69c5261b...",
+          "command_all": "COPY file:bd9cb5c607cf629245cf53226a69c5261b2ccc4af0d8a1d49e18d019cf4774af /tmp/requirements.txt",
+          "target": "/tmp/requirements.txt",
+          "source_type": "file"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-10-02T18:26:37Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 95803249,
+          "size_human": "96 MB",
+          "command_snippet": "RUN pip install --no-cache-dir -r /tmp/requi...",
+          "command_all": "RUN pip install --no-cache-dir -r /tmp/requirements.txt",
+          "system_commands": [
+            "pip install --no-cache-dir -r /tmp/requirements.txt"
+          ]
+        },
+        {
+          "type": "COPY",
+          "time": "2021-10-02T18:26:38Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 292,
+          "size_human": "292 B",
+          "params": "dir:b4e69463a899b4fe323158f89c7e5144efc656f6b2195ff820b6a31ad0ff9e97 in /app",
+          "command_snippet": "COPY dir:b4e69463a899b4fe323158f89c7e5144efc...",
+          "command_all": "COPY dir:b4e69463a899b4fe323158f89c7e5144efc656f6b2195ff820b6a31ad0ff9e97 /app",
+          "target": "/app",
+          "source_type": "dir"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-11-01T18:07:06Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/app\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/app\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/app\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-11-01T18:07:06Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 23,
+          "size_human": "23 B",
+          "command_snippet": "RUN [\"COPY\",\"requirements.txt\",\"/app/require...",
+          "command_all": "RUN [\"COPY\",\"requirements.txt\",\"/app/requirements.txt\"]",
+          "system_commands": [
+            "[\"COPY\",\"requirements.txt\",\"/app/requirements.txt\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-11-01T18:07:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 2205211,
+          "size_human": "2.2 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-r\",\"/app/requirements.txt\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"pip\",\"install\",\"-r\",\"/app/requirements.txt\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-11-01T18:07:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 111,
+          "size_human": "111 B",
+          "command_snippet": "RUN [\"COPY\",\"main.py\",\"/app/main.py\"]",
+          "command_all": "RUN [\"COPY\",\"main.py\",\"/app/main.py\"]",
+          "system_commands": [
+            "[\"COPY\",\"main.py\",\"/app/main.py\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-11-01T18:07:11Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"CMD\",\"[uvicorn\",\"main:app\",\"--host\",\"0...",
+          "command_all": "RUN [\"CMD\",\"[uvicorn\",\"main:app\",\"--host\",\"0.0.0.0\",\"--port\",\"80]\"]",
+          "system_commands": [
+            "[\"CMD\",\"[uvicorn\",\"main:app\",\"--host\",\"0.0.0.0\",\"--port\",\"80]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": [
+            "wildflowerschools/wf-drone-slim-template:v1"
+          ]
+        }
+      ]
+    }
+  ]
+}
