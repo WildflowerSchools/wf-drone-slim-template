@@ -14,7 +14,7 @@ steps:
   commands:
   - echo -n v$DRONE_BUILD_NUMBER > .tags
   - cat .tags
-- name: docker
+- name: docker-build
   image: plugins/docker
   when:
     branch:
@@ -29,7 +29,7 @@ steps:
     password:
       from_secret: docker_password
     repo: wildflowerschools/wf-drone-slim-template
-- name: docker-slim
+- name: docker-build-slim
   image: docker:dind
   environment:
     DRONE: "true"
