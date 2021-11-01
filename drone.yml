@@ -38,6 +38,8 @@ steps:
     PASSWORD:
       from_secret: docker_password
   commands:
+    - sleep 5 # give docker enough time to start
+    - docker ps -a
     - docker images
     - docker run -e dslim/docker-slim build wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER
     - docker login -u $env:USERNAME -p $env:PASSWORD
@@ -45,9 +47,16 @@ steps:
     - docker rmi wildflowerschools/wf-drone-slim-template:v$DRONE_BUILD_NUMBER.slim
   volumes:
     - name: dockersock
-      path: /var/run/docker.sock
+      path: /var/run
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
 
 volumes:
   - name: dockersock
-    host:
-      path: /var/run/docker.sock
+    temp: {}
