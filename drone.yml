@@ -45,7 +45,7 @@ steps:
     - docker images
     - pwd
     # - docker run -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build $TAG
-    - docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile Dockerfile --tag ${TAG}:v${DRONE_BUILD_NUMBER}.slim /app
+    - docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/app dslim/docker-slim build --dockerfile Dockerfile --tag ${TAG}.slim:v${DRONE_BUILD_NUMBER} /app
     - docker login -u $USERNAME -p $PASSWORD
     - docker push ${TAG}:v${DRONE_BUILD_NUMBER}.slim
     - docker rmi  ${TAG}:v${DRONE_BUILD_NUMBER}.slim
