@@ -44,8 +44,8 @@ steps:
     - docker images
     - docker run dslim/docker-slim build --dockerfile Dockerfile --tag $TAG .
     - docker login -u $USERNAME -p $PASSWORD
-    - docker push ${TAG}.slim
-    - docker rmi  ${TAG}.slim
+    - docker push $${TAG}.slim
+    - docker rmi  $${TAG}.slim
   volumes:
     - name: dockersock
       path: /var/run
