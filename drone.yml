@@ -38,7 +38,7 @@ steps:
       from_secret: docker_username
     PASSWORD:
       from_secret: docker_password
-    TAG: wildflowerschools/wf-drone-slim-template
+    TAG: "wildflowerschools/wf-drone-slim-template"
   commands:
     - export TAG_WITH_VERSION="${TAG}.slim:v${DRONE_BUILD_NUMBER}"
     - sleep 8 # give docker enough time to start
